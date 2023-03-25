@@ -1,4 +1,4 @@
-# Loja-de-Decora-o
+# Loja Decoração
 Trabalho para a disciplina de programação web
 Contribuidores: Erico Kreisch, Cristian Machota, Marcella Nunes e Artur Caviquioli
 
