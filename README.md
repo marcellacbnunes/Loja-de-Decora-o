@@ -1,5 +1,9 @@
 # Loja Decoração
-Trabalho para a disciplina de Programação Web - 
+
+Trabalho para a disciplina de Programação Web 
+Código: javascript,css,html
+Bootstrap
+
 Contribuidores: Erico Kreisch, Cristian Machota, Marcella Nunes e Artur Caviquioli
 
 CRUD
