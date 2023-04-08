@@ -1,3 +1,6 @@
+Integrantes: Arthur, Cristian, Érico e Marcella
+Prototipo CRUD loja de Decoração
+
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -95,6 +98,6 @@
 		</script>
 	</body>
 	<footer>
-		<center>Integrantes: Arthur Caviquioli, Cristian, Érico e Marcella.</center>
+		
 	</footer>
 </html>
