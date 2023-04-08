@@ -8,18 +8,18 @@ Prototipo CRUD loja de Decoração
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>DECORA</title>
-		<link href="template/css/bootstrap.min.css" rel="stylesheet">
-		<link href="template/css/style.css" rel="stylesheet">
-		<script src="template/js/Script.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<script src="js/Script.js"></script>
 	</head>
 	<body>
-		<header>
+		<header> 
 			<h1>
-				<a href="index.html"><img id="logo" src="template/img/logo.png"></a>
-				<a href="template/infosUsuario.html"><img id="robo" src="template/img/robo.png"></a>
+				<a href="../index.html"><img id="logo" src="img/logo.png"></a>
+				<a href="infosUsuario.html"><img id="robo" src="img/robo.png"></a>
 			</h1>
 			<p id="usuario"></p>
-			<a id="Nusuario" href="template/login.html">Faça login para continuar</a>
+			<a id="Nusuario" href="login.html">Faça login para continuar</a> 
 			<h1 id="titulo">
 				Decora
 			</h1>
@@ -28,76 +28,199 @@ Prototipo CRUD loja de Decoração
 			<nav>
 				<div class="menu-container">
 					<ul class="menu clearfix">
-						<li><a href="#">Home</a>
-							<!-- Nível 1 -->
-							<!-- submenu -->
-							<ul class="sub-menu clearfix">
-								<li><a href="#">Ambientes</a>
-									<!-- Nível 2 -->
-									<!-- submenu do submenu -->
-									<ul class="sub-menu">
-										<li><a href="#">Sala</a>
-											<!-- Nível 3 -->
-											<!-- submenu do submenu do submenu -->
-											<ul class="sub-menu">
-												<li><a href="#">Sala de Estar</a></li>
-												<li><a href="#">Sala de Jantar</a></li>
-											   
-												
-											</ul><!-- submenu do submenu do submenu -->
-										</li>
-										<li><a href="#">Cozinha</a></li>
-										<li><a href="#">Banheiro</a></li>
-										<li><a href="#">Quarto</a></li>
-										<li><a href="#">Varanda</a></li>
-									</ul><!-- submenu do submenu -->
-								</li>
-								<li><a href="#">Cadastro de Interesses</a></li>
-								
-							</ul><!-- submenu -->
-						</li>
+						<li><a href="../index.html">Home</a></li>
 						<li><a href="#">Nossa Historia</a></li>
-						<li><a id="cadastroTag" href="template/CRUD.html">Cadastro</a></li>
+						<li><a href="CRUD.html">Cadastro</a></li>
 						<li><a href="#">Contato</a></li>
-						<li><a id="multimidia" href="template/multimidia.html">Multimidia</a></li>
-						<li><a id="login" href="template/login.html">Login</a></li>
-						<li><a id="logout" href="javascript:logout(false)">Logout</a></li>						
+						<li><a id="multimidia" href="multimidia.html">Multimidia</a></li>
+						<li><a id="logout" href="javascript:logout(true)">Logout</a></li>
 					</ul>
 				</div>
 			</nav>
-			<section>
-				<article>
-					<h1>O que fazemos?</h1>
-					<h4>A DECORA faz a sua casa ficar mais agradável, com projetos de Arquitetura e Ambientalização.</h4>
-					<h4>Segue alguns exemplos de projetos:</h4>
-				</article>
-				<article>
-					<h1>Sala de Estar</h1>
-					<img src="template/img/sala.jpg" alt="sala industrial">
-					<p>Uma sala de estar moderna e aconchegante para você desfrutar dos seus melhores momentos.</p>
-				</article>
-				
-				<article>
-					<h1>Cozinha</h1>
-					<img src="template/img/cozinha.jpg" alt="cozinha industrial">
-					<p>Uma cozinha jovem e elegante é a proposta da cozinha industrial.</p>
-				</article>
-				
-				<article>
-					<h1>Quarto</h1>
-					<img  src="template/img/quarto.jpg" alt="">
-					<p>Um quarto moderno para você chamar de seu!</p>
-				</article>
-			</section>
+			<div id="main" class="container-fluid">
+				<h3 class="page-header">Crie sua conta na DECORA</h3>
+				<form action="CRUD.html" id="meuForm">
+					<div class="row">
+						<div class="form-group col-md-4">
+							<label for="nome">Nome completo:</label>
+							<input type="name" class="form-control" id="nome" placeholder="Digite o valor" required name=nome>
+						</div>
+						<div class="form-group col-md-4">
+							<label for="email">Email para contato:</label>
+							<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Digite o email" required name=email>
+							<small id="emailHelp" class="form-text text-muted">Nós não compartilharemos seu e-mail com ninguém mais!</small>
+						</div>
+						<div class="form-group col-md-4">
+							<label for="senha">Senha:</label>
+							<input type="password" class="form-control" id="senha" placeholder="Digite a senha" required name=senha>
+						</div>
+					</div>
+					<button class="btn btn-primary" onclick="addUsuario('listaUsuarios')">Cadastrar</button>
+				</form>
+			</div>
+
+			<hr/>
+			<div id="list" class="row">
+
+				<div class="table-responsive col-md-12">
+					<table class="table table-striped" cellspacing="0" cellpadding="0" id="listaUsuarios">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>Senha</th>
+								<th>E-mail</th>
+								<th class="actions">Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr id="1">
+							<td>Joana</td>
+							<td>Decora123</td>
+							<td>Joana@gmail.com</td>
+
+							<td class="actions">
+							<a class="btn btn-warning btn-xs" href="#" data-toggle="modal" data-target="#edit-modal" id="botaoEditar1" onclick="enviaDados(this)">Editar</a>
+							<a class="btn btn-danger btn-xs"  href="#" OnClick="removeLinha(this)">Excluir</a>
+							</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<!-- Modal -->
+			<div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+				<div class="modal-dialog" role="document">
+	  				<div class="modal-content">
+						<div class="modal-header">
+		  					<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+		  					<h4 class="modal-title" id="modalLabel">Editar Item</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group form-float col-lg-12">
+								<label for="nomeEditar">Nome</label>
+								<input type="name" class="form-control" id="nomeEdicao" placeholder="Digite o valor" name=nomeEditar>
+							 </div>
+							 <div class="form-group form-float col-lg-12">
+								<label for="emailEditar">E-mail</label>
+								<input type="email" class="form-control" id="emailEdicao" placeholder="Digite o valor" name=emailEditar>
+							 </div>
+							 <div class="form-group form-float col-lg-12">
+								<label for="senhaEditar">Senha</label>
+								<input type="text" class="form-control" id="senhaEdicao" placeholder="Digite o valor" name=senhaEditar>
+							 </div>
+						</div>
+						<div class="modal-footer">
+		  					<button type="button" class="btn btn-primary" data-dismiss="" onclick="finalizaEdicao()" id="btnFinalizaEdicao">Sim</button>
+	  						<button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
+						</div>
+	  				</div>
+				</div>
+  			</div>
+
+			<script src="js/jquery.min.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/bibliotecas.js"></script>
+			<script>
+                function addUsuario(idTabela) {
+                    var form = document.getElementById("meuForm");
+					function handleForm(event) { event.preventDefault(); } 
+					form.addEventListener('submit', handleForm);
+                    
+                    if (document.getElementById("nome").value == ""  ||
+					    document.getElementById("senha").value == "" ||
+						document.getElementById("email").value == "") {
+                        alert("Há campos vazios!");
+					} else {
+                        if (!document.getElementById("email").checkValidity()) {
+							alert("E-mail Inválido!")
+						} else {
+        				    var tabela = document.getElementById(idTabela);
+        				    var numeroLinhas = tabela.rows.length;
+        				    var linha = tabela.insertRow(numeroLinhas);
+							linha.setAttribute('id',numeroLinhas);
+        				    var celula1 = linha.insertCell(0);
+        				    var celula2 = linha.insertCell(1);   
+        				    var celula3 = linha.insertCell(2); 
+						    var celula4 = linha.insertCell(3); 
+        				    celula1.innerHTML = document.getElementById("nome").value; 
+        				    celula2.innerHTML = document.getElementById("senha").value;
+        				    celula3.innerHTML = document.getElementById("email").value;
+						    celula4.innerHTML = "<a class='btn btn-warning btn-xs' href='#' data-toggle='modal' data-target='#edit-modal' id='botaoEditar" + numeroLinhas + "' onclick='enviaDados(this)''>Editar</a> \
+							                     <a class='btn btn-danger btn-xs'  href='#' OnClick='removeLinha(this)'>Excluir</a>";
+						    celula4.className = 'actions';
+						}
+					}
+     			}
+	 
+	 			function removeLinha(linha) {
+        			var i=linha.parentNode.parentNode.rowIndex;
+					var resposta = window.confirm("Tem certeza que deseja excluir?")
+					if (resposta) {
+            			document.getElementById('listaUsuarios').deleteRow(i);
+					}
+	 			}
+                
+				var linhaEmEdicao;
+				function enviaDados(botaoEditar) {
+					var botao = botaoEditar;
+					var id = botao.id
+					var numeroLinha = id.substring(11,id.length);
+					linhaEmEdicao = numeroLinha;
+					var tabela = document.getElementById("listaUsuarios");
+
+					for (var i = 0, row; row = tabela.rows[i]; i++) {
+						if (i == numeroLinha) {
+							for (var j = 0, col; col = row.cells[j]; j++) {
+							    if (j == 0) {
+									document.getElementById("nomeEdicao").value = col.innerText;
+								}
+								if (j == 1) {
+									document.getElementById("senhaEdicao").value = col.innerText;
+								}								
+								if (j == 2) {
+									document.getElementById("emailEdicao").value = col.innerText;
+								}
+							} 
+						}
+					}
+				}
+
+				function finalizaEdicao() {
+					var tabela = document.getElementById("listaUsuarios");
+					for (var i = 0, row; row = tabela.rows[i]; i++) {
+						if (i == linhaEmEdicao) {
+							if (!document.getElementById("emailEdicao").checkValidity()) {
+								alert("E-mail Inválido!")
+								document.getElementById('btnFinalizaEdicao').setAttribute('data-dismiss','');									    
+							} else {
+								for (var j = 0, col; col = row.cells[j]; j++) {
+							    	if (j == 0) {
+										col.innerText = document.getElementById("nomeEdicao").value;
+									}
+									if (j == 1) {
+										col.innerText = document.getElementById("senhaEdicao").value;
+									}								
+									if (j == 2) {
+										col.innerText = document.getElementById("emailEdicao").value;
+									}
+								}
+
+								document.getElementById('btnFinalizaEdicao').setAttribute('data-dismiss','modal');
+							} 
+						}
+					}
+				}
+			</script>
 		</main>
 		<script>
 			window.onload = function() {
-                confereCookie(false);
+                confereCookie(true);
                 confereCookieLayout();
 			}
 		</script>
 	</body>
 	<footer>
-		
+		<center>Integrantes: Arthur Caviquioli, Cristian, Érico e Marcella.</center>
 	</footer>
 </html>
