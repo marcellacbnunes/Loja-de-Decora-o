@@ -1,0 +1,104 @@
+Integrantes: Arthur , Cristian, Érico e Marcella.
+Prototipo de página para coletar informações do usuário.
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>DECORA</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/Script.js"></script>
+	</head>
+	<body>
+		<label for="escolhaLayout">Layout da Página</label>
+		<select name="escolhaLayout" id="escolhaLayout" onchange="mudaLayout(this.value)">
+			<option value="layoutNormal">Normal</option>
+			<option value="layoutCustom">Custom</option>
+		</select>
+
+		<header>			
+			<h1>
+				<a id="linkHome" href="../index.html"><img id="logo" src="img/logo.png"></a>
+                <a href="infosUsuario.html"><img id="robo" src="img/robo.png"></a>
+			</h1>
+            <p id="usuario"></p>
+			<a id="Nusuario" href="template/cadastro.html">Faça login para continuar</a> 
+			<h1 id="titulo">
+				Decora
+			</h1>
+		</header>
+		
+		<main>
+			<nav>
+				<div class="menu-container">
+					<ul class="menu clearfix">
+						<li><a href="../index.html">Home</a></li>
+						<li><a href="#">Nossa Historia</a></li>
+						<li><a href="CRUD.html">Cadastro</a></li>
+						<li><a href="#">Contato</a></li>
+						<li><a id="multimidia" href="template/multimidia.html">Multimidia</a></li>
+						<li><a id="logout" href="javascript:logout(true)">Logout</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="container">
+				<a class="links" id="paracadastro"></a>
+				<a class="links" id="paralogin"></a>
+			
+				<div class="content">
+					<div id="cadastro">
+						<form id="form" action="../index.html">
+							<div class="organizador">
+								<div class="login">
+                                    <h3>Informações do usuário</h3><br/>
+									<label for="campoNome">Nome:</label>
+									<input id="campoNome" name="campoNome" required="required" type="text"/><br/>
+                                    <label for="campoSobreNome">Sobrenome:</label>
+									<input id="campoSobreNome" name="campoSobreNome" required="required" type="text"/><br/>
+									<label for="campoData">Data de Nascimento:</label>
+									<input id="campoData" name="campoData" required="required" type="Date"/><br/>
+
+                                    <label for="campoGenero">Gênero:</label>
+                                    <select id="campoGenero" name="campoGenero">
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Feminino">Feminino</option>
+                                        <option value="Outro">Outro</option>
+                                    </select><br/>
+
+									<label for="campoIdade">Idade:</label>
+									<input id="campoIdade" name="campoIdade" required="required" type="Number"/><br/>
+
+                                    <input type="checkbox" name="termos" id="termos" required="required" value="" />
+							        <a class="texto3" for="termos">Concordo com os termos de uso do site</a>
+								</div>
+							</div><br/>
+
+							<p>
+								<input class="button-cadastro" type="submit" value="Acessar" onclick="setaCookieLayout(escolhaLayout.value)"/>
+							</p>
+
+							<p class="link">* Não compartilhamos suas informações pessoais</a></p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script>
+			window.onload = function() {
+                confereCookie(true);
+                confereCookieLayout();
+				if (getCookieLayout() != null) {
+				    document.getElementById("escolhaLayout").value = getCookieLayout();
+				} else {
+					document.getElementById("escolhaLayout").value = "layoutNormal";
+				}
+			}
+		</script>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<footer>
+	
+	</footer>
+</html>
