@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>DECORA</title>
+		<link href="template/css/bootstrap.min.css" rel="stylesheet">
+		<link href="template/css/style.css" rel="stylesheet">
+		<script src="template/js/Script.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>
+				<a href="index.html"><img id="logo" src="template/img/logo.png"></a>
+				<a href="template/infosUsuario.html"><img id="robo" src="template/img/robo.png"></a>
+			</h1>
+			<p id="usuario"></p>
+			<a id="Nusuario" href="template/login.html">Faça login para continuar</a>
+			<h1 id="titulo">
+				Decora
+			</h1>
+		</header>
+		<main>
+			<nav>
+				<div class="menu-container">
+					<ul class="menu clearfix">
+						<li><a href="#">Home</a>
+							<!-- Nível 1 -->
+							<!-- submenu -->
+							<ul class="sub-menu clearfix">
+								<li><a href="#">Ambientes</a>
+									<!-- Nível 2 -->
+									<!-- submenu do submenu -->
+									<ul class="sub-menu">
+										<li><a href="#">Sala</a>
+											<!-- Nível 3 -->
+											<!-- submenu do submenu do submenu -->
+											<ul class="sub-menu">
+												<li><a href="#">Sala de Estar</a></li>
+												<li><a href="#">Sala de Jantar</a></li>
+											   
+												
+											</ul><!-- submenu do submenu do submenu -->
+										</li>
+										<li><a href="#">Cozinha</a></li>
+										<li><a href="#">Banheiro</a></li>
+										<li><a href="#">Quarto</a></li>
+										<li><a href="#">Varanda</a></li>
+									</ul><!-- submenu do submenu -->
+								</li>
+								<li><a href="#">Cadastro de Interesses</a></li>
+								
+							</ul><!-- submenu -->
+						</li>
+						<li><a href="#">Nossa Historia</a></li>
+						<li><a id="cadastroTag" href="template/CRUD.html">Cadastro</a></li>
+						<li><a href="#">Contato</a></li>
+						<li><a id="multimidia" href="template/multimidia.html">Multimidia</a></li>
+						<li><a id="login" href="template/login.html">Login</a></li>
+						<li><a id="logout" href="javascript:logout(false)">Logout</a></li>						
+					</ul>
+				</div>
+			</nav>
+			<section>
+				<article>
+					<h1>O que fazemos?</h1>
+					<h4>A DECORA faz a sua casa ficar mais agradável, com projetos de Arquitetura e Ambientalização.</h4>
+					<h4>Segue alguns exemplos de projetos:</h4>
+				</article>
+				<article>
+					<h1>Sala de Estar</h1>
+					<img src="template/img/sala.jpg" alt="sala industrial">
+					<p>Uma sala de estar moderna e aconchegante para você desfrutar dos seus melhores momentos.</p>
+				</article>
+				
+				<article>
+					<h1>Cozinha</h1>
+					<img src="template/img/cozinha.jpg" alt="cozinha industrial">
+					<p>Uma cozinha jovem e elegante é a proposta da cozinha industrial.</p>
+				</article>
+				
+				<article>
+					<h1>Quarto</h1>
+					<img  src="template/img/quarto.jpg" alt="">
+					<p>Um quarto moderno para você chamar de seu!</p>
+				</article>
+			</section>
+		</main>
+		<script>
+			window.onload = function() {
+                confereCookie(false);
+                confereCookieLayout();
+			}
+		</script>
+	</body>
+	<footer>
+		<center>Integrantes: Arthur Caviquioli, Cristian, Érico e Marcella.</center>
+	</footer>
+</html>
